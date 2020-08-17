@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Models\User;
+use App\User;
 class UserSeeder extends Seeder
 {
     /**
@@ -9,15 +9,10 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-
     public function run()
     {
-    	#清空一下数据表
-    	User::truncate();
-        #添加模拟数据 100个用户
+        User::truncate();
         factory(User::class,100) -> create();
-
-        #id为1的用户名为admin
-        User::where('id','1') -> update(['username'=>'admin']);
+        User::where('id','1') -> update(['username' => 'Admin']);
     }
 }
